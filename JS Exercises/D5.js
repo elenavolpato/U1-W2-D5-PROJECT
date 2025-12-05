@@ -67,8 +67,24 @@ const cars = [
   },
 ];
 console.log("<---- ESERCIZIO 5 ---->");
+
+//come non possiamo ancora usare regex...
+const alphabet = "abcdefghijklmnopqrstuvxyz";
+const numbers = "0123456789";
+
+//function to generate the license Plates
+function randomLicensePlate(str, max) {
+  let licensePlate = "";
+  for (let i = 0; i < max; i++) {
+    let randomIndex = Math.floor(Math.random() * str.length);
+    licensePlate += str[randomIndex];
+  }
+
+  return licensePlate.toUpperCase();
+}
+
 for (let i = 0; i < cars.length; i++) {
-  cars[i].licensePlate = "";
+  cars[i].licensePlate = randomLicensePlate(alphabet, 3) + "-" + randomLicensePlate(numbers, 4);
 }
 console.log(cars);
 
@@ -81,7 +97,7 @@ console.log("<---- ESERCIZIO 6 ---->");
 const newCar = {
   brand: "Gurgel",
   model: "BR-800",
-  licensePlate: "BR-5849",
+  licensePlate: "BRS-5849",
   color: "red",
   trims: ["SL", "van"],
 };
